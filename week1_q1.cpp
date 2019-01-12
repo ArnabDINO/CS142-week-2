@@ -32,12 +32,34 @@ class node{
 		//pointer part
 		node *next;
 		//default constructor
+		node(){
+			next=NULL;//this makes the pointer to point to null as a default
+		}
 };
 //create the list
 class list{
 	public:
 		//node will be here
 		// and the head to point to the nodes must also belong to here.
+		//and the head must be a pointer pointing to the next node
+		node* head;
+		node* tail;
+		//default constructor
+		list(){
+			head=NULL;
+			tail=NULL;
+		}
+		//inser function
+		void insert(int i_data){
+			node* temp= new node;//creates a temp node with default value
+			temp->data=i_data;//inserts the value from i_data inside the data variable of the temp node
+			
+			//now for input of the value from temp node to list can occur in two ways,
+			//when there is only one node, i.e, the head will point to the node containing that value
+			if (head==NULL){
+				head->next=temp;
+			}
+		}
 };
 
 int main()
