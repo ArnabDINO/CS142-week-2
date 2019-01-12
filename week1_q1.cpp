@@ -25,8 +25,20 @@ display() - Displays all the elements in the linked list.
 using namespace std;
 
 //create the members of the list
-
+class node{
+	public:
+		//data place
+		int data;
+		//pointer part
+		node *next;
+		//default constructor
+};
 //create the list
+class list{
+	public:
+		//node will be here
+		// and the head to point to the nodes must also belong to here.
+};
 
 int main()
 {
