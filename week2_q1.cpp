@@ -73,12 +73,87 @@ class list{
 				i++;
 				current=current->next;
 			}
+			node* temp=new node;
+			temp->data=i_data;
+			temp->next=current->next;//this one swaps the values
+			current->next=temp;
+			
+		}
+		//Delete function
+		void delet(){
+			node *current=head;
+			int i=1;
+			while(current->next!=tail){
+				i++;
+				current=current->next;
+			}
+			node *temp=tail;
+			current->next=NULL;
 			
 			
 		}
+		//deleteAt function
+		void deleteAt(int pos){
+			node*current=head;
+			int i=1;
+			while(i<pos-1){
+				i++;
+				current=current->next;
+			}
+			node* temp=current->next;
+			current->next=temp->next;
+			temp=NULL;
+		}
+		//count function
+		void count(){
+			node*current=head;
+			int i=1;
+			while(current!=tail){
+				i++;
+				current=current->next;
+			}
+			cout<<"the number of node in the list is "<<i<<".\n";
+		}
+		void display()
+		{
+			node *current=head;
+			while(current != NULL)
+			{
+			
+				cout<<current->data<<"->";
+				current=current->next;
+			}
+			cout<<"NULL"<<endl;
+			
+		}
+
+
 };
 
 int main()
 {
+	list l1;
+	l1.display();
+	l1.insert(1);
+	l1.count();
+	l1.display();
+	l1.insert(2);
+	l1.insert(3);
+	l1.insert(4);
+	l1.count();
+	l1.display();
+	l1.delet();
+	l1.count();
+	l1.display();
+	l1.insertAt(3,51);
+	l1.count();
+	l1.display();
+	l1.deleteAt(3);
+	l1.count();
+	l1.display();
+	
+	/*l1.count();
+	l1.display();
+	*/
 	return 0;
 }
