@@ -81,19 +81,57 @@ class list{
 					current->next=temp;
 			}
 		}
+		
 		//delete
 		void delet(){
-			//store the tail in temp
-			node * temp = tail;
-			// before tail has to point to null
-			node * current=head;
-			while(current->next !=tail){
-				current =current->next;		
+				node* current=head;
+				node* temp= new node;
+				//insertion
+				//temp->data=i_data;
+				if(head==NULL){
+					//head= temp;
+					//temp->next=head;
+					cout<<"empty list nothing to delete\n";
+				}
+				else{
+					while(current->next->next!=head ){
+						current=current->next;
+					}
+					temp=current->next;
+					current->next=head;
+					delete temp;
+				}
+				
+		}
+		//deleteAt
+		
+		void deleteAt(int pos){
+			node* temp=new node;
+			//temp->data=i_data;
+			//pos==1
+			if (pos==1){
+				temp=head;
+				node* current=head;
+				while(current->next!=head){
+					current=current->next;
+				}
+				current->next=head->next;
+				head=head->next;
+				delete temp;
 			}
-			current->next=head;
-			//update tail
-			tail=current;
-			delete temp;
+			//pos=/=1
+			else{
+				node* current= head;
+				int i=1;
+					while(i<pos-2){
+						i++;
+						current=current->next;
+					}
+					//data deletion
+					temp=current->next;
+					current->next=current->next->next;
+					delete temp;
+			}
 		}
 		
 		//display function
@@ -129,5 +167,15 @@ int main(){
 	l1.insertAt(1,1);
 	l1.display();
 	l1.count();
+	l1.delet();
+	l1.display();
+	l1.count();
+	l1.insertAt(3,3);
+	l1.display();
+	l1.count();
+	l1.deleteAt(2);
+	l1.display();
+	l1.count();
+	
 	return 0;
 }
